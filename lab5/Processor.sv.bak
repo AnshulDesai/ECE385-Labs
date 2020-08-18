@@ -1,0 +1,96 @@
+//Always use input/output logic types when possible, prevents issues with tools that have strict type enforcement
+
+module Processor (input logic   Clk,     // Internal
+                                Reset,   // Push button 0
+                                ClearALoadB,   // Push button 2
+                                Execute, // Push button 3
+                  input  logic [7:0]  Switches,     // input data from switches
+                  output logic [3:0]  LED,     // DEBUG
+                  output logic [6:0]   AhexL, AhexU, BhexL, BhexU,
+						output logic [7:0] A_val,
+						output logic [7:0] B_val);
+
+	 //local logic variables go here
+	 logic Reset_SH, ClearALoadB_SH, Execute_SH;
+	 logic [7:0] Switches_S;
+	 
+	 //Control Unit Outputs
+	 logic Shift_En, Load_AX, fn, ClearXA, LoadB;
+	 
+	 //Register Unit Inputs
+	 logic ResetA;
+	 
+	 //Register Unit Outputs
+	 logic M;
+	 logic [7:0] A, B;
+	 logic [8:0] Sum; 
+	 	 
+	 //debugging technique
+	 assign A_val = A; 
+	 assign B_val = B;
+	 assign ResetA = (Reset_SH | ClearXA); //if reset_sh or clearxa is high, reset x and a
+	 
+	 //We can use the "assign" statement to do simple combinational logic
+	 assign LED = {Execute_SH, ClearALoadB_SH, Reset_SH}; //Concatenate is a common operation in HDL
+	 
+	 //Instantiation of modules here
+	 control          control_unit (
+								// inputs
+                        .Clk(Clk), //clock input
+                        .Reset(Reset_SH), //reset button
+                        .ClearALoadB(ClearALoadB_SH), //cleara_loadb button
+                        .Execute(Execute_SH), //execute/run button
+								.M(M), //M from register unit
+                        // outputs
+								.Shift_En(Shift_En), //output to register unit to shift or not
+								.Load_AX(Load_AX), //output to register unit whether to load in adder value or not
+								.fn(fn), //output to ripple adder
+								.ClearXA(ClearXA), //need to do combinational logic for ResetA
+								.LoadB(LoadB) ); //output to register unit to loadb
+
+	 register_unit    XAB_register_unit (
+                        // inputs
+								.Clk(Clk), //clock input
+                        .Reset(Reset_SH), //reset button
+								.ResetA(ResetA), //combinational logic
+                        .X_In(Sum[8]), //input from 8th bit from adder
+								.Load_AX(Load_AX), //input from control unit, load a and x when adding or subtracting
+								.Load_B(LoadB), //input from control unit for clear a load b, clear done through next state
+                        .Shift_En(Shift_En), //input from control unit
+                        .DA(Sum[7:0]), //input from bits 7:0 from adder
+								.DB(Switches_S[7:0]), //input from switches
+								// outputs
+								.M(M),
+                        .A(A[7:0]),
+                        .B(B[7:0]) );
+								
+	 ripple_adder		nine_bit_adder (
+								// inputs
+								.A(A[7:0]), //input from register unit
+								.Switches(Switches_S[7:0]), //input from switches
+								.fn(fn), //input from control unit
+								// outputs
+								.Sum(Sum[8:0]) ); //output to register unit
+															
+ 
+	 HexDriver        HexAL (
+                        .In0(A[3:0]),
+                        .Out0(AhexL) );
+	 HexDriver        HexBL (
+                        .In0(B[3:0]),
+                        .Out0(BhexL) );					
+	 HexDriver        HexAU (
+                        .In0(A[7:4]),
+                        .Out0(AhexU) );	
+	 HexDriver        HexBU (
+                        .In0(B[7:4]),
+                        .Out0(BhexU) );
+								
+	  //Input synchronizers required for asynchronous inputs (in this case, from the switches)
+	  //These are array module instantiations
+	  //Note: S stands for SYNCHRONIZED, H stands for active HIGH
+	  //Note: We can invert the levels inside the port assignments
+	  sync button_sync[2:0] (Clk, {~Reset, ~ClearALoadB, ~Execute}, {Reset_SH, ClearALoadB_SH, Execute_SH});
+	  sync Switches_sync[7:0] (Clk, Switches, Switches_S);
+
+endmodule

@@ -1,0 +1,19 @@
+module reg16bitNZP (input logic Clk, Reset, Load,
+							input logic [15:0] busIn,
+							output logic n, z, p);
+							
+		logic nzp [2:0];
+		logic n, z p;
+		
+		always_comb 
+		begin
+			nzp = 3'b001;
+			if (busIn[15])
+				begin
+					nzp = 3'b100;
+				end
+			else if (busIn == 16'h0000) // See if you can just do !busIn
+				begin
+					nzp = 3'b010;
+				end
+		end

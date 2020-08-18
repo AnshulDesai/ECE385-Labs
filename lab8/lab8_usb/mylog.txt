@@ -1,0 +1,8 @@
+Using cable "USB-Blaster [USB-0]", device 1, instance 0x00
+Processor is already paused
+Reading System ID at address 0x00000138: verified
+Initializing CPU cache (if present)
+OK
+Downloading 10000000 ( 0%)Downloading 10010000 (79%)Downloading 100141F8 (91%)Downloaded 81KB in 0.9s (90.0KB/s)
+Verifying 10000000 ( 0%)Verifying 10010000 (79%)Verifying 100141F8 (91%)Verified OK                         
+Starting processor at address 0x10000230

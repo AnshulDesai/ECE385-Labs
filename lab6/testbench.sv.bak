@@ -1,0 +1,96 @@
+module testbench();
+
+timeunit 10ns;	
+timeprecision 1ns;
+
+logic [15:0] S;
+logic Clk, Reset, Run, Continue;
+logic [11:0] LED;
+logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7;
+logic [15:0] MAR, MDR, PC, IR, BUS_MUX_output;
+logic [15:0] SR1_output, SR2_output, ADDER_MUX_output, ALU_output;
+logic [2:0] DR_MUX_output, SR1_MUX_output;
+logic [19:0] ADDR;
+
+logic LD_MAR, LD_IR, LD_BEN, LD_CC, LD_REG, LD_PC, LD_MDR;
+logic GatePC, GateMDR, GateALU, GateMARMUX;
+logic [1:0]  PCMUX, ADDR2MUX, ALUK;
+logic  DRMUX,SR1MUX, SR2MUX, ADDR1MUX;
+logic CE, UB, LB, OE, WE;
+
+always begin : CLOCK_GENERATION
+#1 Clk = ~Clk;
+end
+
+initial begin: CLOCK_INITIALIZATION
+    Clk = 0;
+end 
+
+lab6_toplevel tp_lc3_0(.*, .Data());
+
+
+assign MAR = tp_lc3_0.my_slc.d0.reg_MAR_output;
+assign IR  = tp_lc3_0.my_slc.d0.reg_IR_output;
+assign PC  = tp_lc3_0.my_slc.d0.reg_PC_output;
+assign MDR = tp_lc3_0.my_slc.d0.reg_MDR_output;
+assign BUS_MUX_output = tp_lc3_0.my_slc.d0.BUS_MUX_output;
+assign ADDER_MUX_output = tp_lc3_0.my_slc.d0.ADDER_MUX_output;
+assign ALU_output = tp_lc3_0.my_slc.d0.ALU_output;
+assign DR_MUX_output = tp_lc3_0.my_slc.d0.DR_MUX_output;
+assign SR1_MUX_output = tp_lc3_0.my_slc.d0.SR1_MUX_output;
+assign SR1_output = tp_lc3_0.my_slc.d0.REG_FILE.SR1_output;
+assign SR2_output = tp_lc3_0.my_slc.d0.REG_FILE.SR2_output;
+assign BEN_output = tp_lc3_0.my_slc.d0.BEN_output;
+
+assign LD_MAR = tp_lc3_0.my_slc.state_controller.LD_MAR;
+assign LD_IR = tp_lc3_0.my_slc.state_controller.LD_IR;
+assign LD_BEN = tp_lc3_0.my_slc.state_controller.LD_BEN;
+assign LD_CC = tp_lc3_0.my_slc.state_controller.LD_CC;
+assign LD_REG = tp_lc3_0.my_slc.state_controller.LD_REG;
+assign LD_PC = tp_lc3_0.my_slc.state_controller.LD_PC;
+assign LD_MDR = tp_lc3_0.my_slc.state_controller.LD_MDR;
+assign GatePC = tp_lc3_0.my_slc.state_controller.GatePC;
+assign GateMDR = tp_lc3_0.my_slc.state_controller.GateMDR;
+assign GateALU = tp_lc3_0.my_slc.state_controller.GateALU;
+assign GateMARMUX = tp_lc3_0.my_slc.state_controller.GateMARMUX;
+assign PCMUX = tp_lc3_0.my_slc.state_controller.PCMUX;
+assign DRMUX = tp_lc3_0.my_slc.state_controller.DRMUX;
+assign SR1MUX = tp_lc3_0.my_slc.state_controller.SR1MUX;
+assign SR2MUX = tp_lc3_0.my_slc.state_controller.SR2MUX;
+assign ADDR1MUX = tp_lc3_0.my_slc.state_controller.ADDR1MUX;
+assign ADDR2MUX = tp_lc3_0.my_slc.state_controller.ADDR2MUX;
+assign ALUK = tp_lc3_0.my_slc.state_controller.ALUK;
+
+
+
+initial begin : TEST_VEC			
+Reset = 0;
+Run = 1;
+Continue = 1;
+
+//Basic I/O Test 1
+S = 16'h0003;
+#2 Reset = 1;
+#2 Run = 0;
+#50 Run = 1;
+#75 S = 16'h0000;
+#125 S = 16'h0004;
+////Basic I/O Test 2
+//S = 16'h0006;
+//#2 Reset = 0;
+//#2 Reset = 1;
+//#2 Run = 0;
+//#2 Run = 1;
+////#22 S = 16'h9999;
+//#50 Continue = 0;
+//#50 Continue = 1;
+//#50 Continue = 0;
+//#50 Continue = 1;
+
+
+
+#22;
+
+end
+
+endmodule

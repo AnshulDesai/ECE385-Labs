@@ -1,0 +1,215 @@
+Design Assistant report for lab6_toplevel
+Thu Feb 27 21:04:07 2020
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Design Assistant Summary
+  3. Design Assistant Settings
+  4. Information only Violations
+  5. Design Assistant Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; Design Assistant Summary                                                ;
++-----------------------------------+-------------------------------------+
+; Design Assistant Status           ; Analyzed - Thu Feb 27 21:04:07 2020 ;
+; Revision Name                     ; lab6_toplevel                       ;
+; Top-level Entity Name             ; lab6_toplevel                       ;
+; Family                            ; Cyclone IV E                        ;
+; Total Critical Violations         ; 0                                   ;
+; Total High Violations             ; 0                                   ;
+; Total Medium Violations           ; 0                                   ;
+; Total Information only Violations ; 55                                  ;
+; - Rule T101                       ; 5                                   ;
+; - Rule T102                       ; 50                                  ;
++-----------------------------------+-------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Design Assistant Settings                                                                                                                                                                  ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------+----+
+; Option                                                                                                                                                               ; Setting        ; To ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------+----+
+; Design Assistant mode                                                                                                                                                ; Post-Synthesis ;    ;
+; Threshold value for clock net not mapped to clock spines rule                                                                                                        ; 25             ;    ;
+; Minimum number of clock port feed by gated clocks                                                                                                                    ; 30             ;    ;
+; Minimum number of node fan-out                                                                                                                                       ; 30             ;    ;
+; Maximum number of nodes to report                                                                                                                                    ; 50             ;    ;
+; Rule C101: Gated clock should be implemented according to the Intel FPGA standard scheme                                                                             ; On             ;    ;
+; Rule C102: Logic cell should not be used to generate an inverted clock signal                                                                                        ; On             ;    ;
+; Rule C103: Gated clock does not feed at least a pre-defined number of clock ports to effectively save power                                                          ; On             ;    ;
+; Rule C104: Clock signal source should drive only clock input ports                                                                                                   ; On             ;    ;
+; Rule C105: Clock signal should be a global signal                                                                                                                    ; On             ;    ;
+; Rule C106: Clock signal source should not drive registers triggered by different clock edges                                                                         ; On             ;    ;
+; Rule R101: Combinational logic used as a reset signal should be synchronized                                                                                         ; On             ;    ;
+; Rule R102: External reset signals should be synchronized using two cascaded registers                                                                                ; On             ;    ;
+; Rule R103: External reset signal should be correctly synchronized                                                                                                    ; On             ;    ;
+; Rule R104: The reset signal that is generated in one clock domain and used in another clock domain should be correctly synchronized                                  ; On             ;    ;
+; Rule R105: The reset signal that is generated in one clock domain and used in another clock domain should be synchronized                                            ; On             ;    ;
+; Rule T101: Nodes with more than the specified number of fan-outs                                                                                                     ; On             ;    ;
+; Rule T102: Top nodes with the highest number of fan-outs                                                                                                             ; On             ;    ;
+; Rule A101: Design should not contain combinational loops                                                                                                             ; On             ;    ;
+; Rule A102: Register output should not drive its own control signal directly or through combinational logic                                                           ; On             ;    ;
+; Rule A103: Design should not contain delay chains                                                                                                                    ; On             ;    ;
+; Rule A104: Design should not contain ripple clock structures                                                                                                         ; On             ;    ;
+; Rule A105: Pulses should not be implemented asynchronously                                                                                                           ; On             ;    ;
+; Rule A106: Multiple pulses should not be generated in design                                                                                                         ; On             ;    ;
+; Rule A107: Design should not contain SR latches                                                                                                                      ; On             ;    ;
+; Rule A108: Design should not contain latches                                                                                                                         ; On             ;    ;
+; Rule S101: Output enable and input of the same tri-state node should not be driven by same signal source                                                             ; On             ;    ;
+; Rule S102: Synchronous port and asynchronous port of the same register should not be driven by the same signal source                                                ; On             ;    ;
+; Rule S103: More than one asynchronous port of a register should not be driven by the same signal source                                                              ; On             ;    ;
+; Rule S104: Clock port and any other port of a register should not be driven by the same signal source                                                                ; On             ;    ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains                                                                        ; On             ;    ;
+; Rule D102: Multiple data bits that are transferred across asynchronous clock domains are synchronized, but not all bits may be aligned in the receiving clock domain ; On             ;    ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains                                                              ; On             ;    ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------+----+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Information only Violations                                                                                                                 ;
++------------------------------------------------------------------+----------------------------------------------------------------+---------+
+; Rule name                                                        ; Name                                                           ; Fan-Out ;
++------------------------------------------------------------------+----------------------------------------------------------------+---------+
+; Rule T101: Nodes with more than the specified number of fan-outs ; slc3:my_slc|ISDU:state_controller|SR2MUX~0                     ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; slc3:my_slc|datapath:d0|three2to1Mux:SR1MUX|muxOut[0]~0        ; 49      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; slc3:my_slc|datapath:d0|three2to1Mux:SR1MUX|muxOut[1]~1        ; 47      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; slc3:my_slc|datapath:d0|SR2Val[1]                              ; 50      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; slc3:my_slc|datapath:d0|SR2Val[0]                              ; 49      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|SR2Val[1]                              ; 50      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|three2to1Mux:SR1MUX|muxOut[0]~0        ; 49      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|SR2Val[0]                              ; 49      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|three2to1Mux:SR1MUX|muxOut[1]~1        ; 47      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|ISDU:state_controller|SR2MUX~0                     ; 31      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|ISDU:state_controller|State.S_09                   ; 21      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|ISDU:state_controller|State.S_21                   ; 19      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|ISDU:state_controller|State.S_12                   ; 18      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|SR2Val[2]                              ; 16      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|register_unit:rUnit|tmpRegs[5][10]~152 ; 16      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regIR|nextData[1]~9           ; 16      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|register_unit:rUnit|tmpRegs[6][4]~153  ; 16      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|register_unit:rUnit|tmpRegs[7][14]~155 ; 16      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|register_unit:rUnit|tmpRegs[4][6]~154  ; 16      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|register_unit:rUnit|tmpRegs[2][8]~156  ; 16      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|register_unit:rUnit|tmpRegs[0][12]~158 ; 16      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|register_unit:rUnit|tmpRegs[3][8]~159  ; 16      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|register_unit:rUnit|tmpRegs[1][2]~157  ; 16      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|three2to1Mux:SR1MUX|muxOut[2]~2        ; 16      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regIR|Dout[10]~0              ; 16      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regMAR|Dout[14]~0             ; 16      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|ISDU:state_controller|State.PauseIR1               ; 15      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regIR|nextData[1]~15          ; 15      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regIR|nextData[1]~13          ; 15      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|ISDU:state_controller|State.S_07                   ; 15      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regIR|nextData[1]~48          ; 15      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regPC|Dout[8]~0               ; 15      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|sign5bit[4]                            ; 12      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regPC|Dout[0]                 ; 11      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regMAR|nextData[13]~5         ; 10      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regIR|nextData[3]~23          ; 10      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regIR|nextData[4]~26          ; 10      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regIR|nextData[1]~17          ; 10      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|ISDU:state_controller|State.S_32                   ; 10      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regMAR|nextData[12]~2         ; 10      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regIR|Dout[9]                 ; 10      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regIR|nextData[9]~41          ; 10      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regIR|Dout[11]                ; 10      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regMAR|nextData[14]~8         ; 10      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regIR|nextData[11]~47         ; 10      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regIR|nextData[5]~29          ; 10      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regIR|nextData[6]~32          ; 10      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regMAR|nextData[15]~11        ; 10      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regIR|nextData[8]~38          ; 10      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regIR|nextData[10]~44         ; 10      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regIR|nextData[2]~20          ; 10      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regIR|nextData[0]~12          ; 10      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regIR|nextData[7]~35          ; 10      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|ISDU:state_controller|State.S_04                   ; 10      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; slc3:my_slc|datapath:d0|reg16bit:regPC|Dout[10]                ; 9       ;
++------------------------------------------------------------------+----------------------------------------------------------------+---------+
+
+
++---------------------------+
+; Design Assistant Messages ;
++---------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Design Assistant
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Thu Feb 27 21:04:04 2020
+Info: Command: quartus_drc lab6 -c lab6_toplevel
+Info (119006): Selected device EP4CE115F29C7 for design "lab6_toplevel"
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'lab6_toplevel.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332144): No user constrained base clocks found in the design
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
+Info (308046): (Information) Rule T101: Nodes with more than the specified number of fan-outs. (Value defined:30). Found 5 node(s) with highest fan-out.
+    Info (308011): Node  "slc3:my_slc|ISDU:state_controller|SR2MUX~0" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/ISDU.sv Line: 46
+    Info (308011): Node  "slc3:my_slc|datapath:d0|three2to1Mux:SR1MUX|muxOut[0]~0" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/mux_bank.sv Line: 18
+    Info (308011): Node  "slc3:my_slc|datapath:d0|three2to1Mux:SR1MUX|muxOut[1]~1" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/mux_bank.sv Line: 18
+    Info (308011): Node  "slc3:my_slc|datapath:d0|SR2Val[1]" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/datapath.sv Line: 39
+    Info (308011): Node  "slc3:my_slc|datapath:d0|SR2Val[0]" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/datapath.sv Line: 39
+Info (308044): (Information) Rule T102: Top nodes with the highest number of fan-outs. (Value defined:50). Found 50 node(s) with highest fan-out.
+    Info (308011): Node  "slc3:my_slc|datapath:d0|SR2Val[1]" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/datapath.sv Line: 39
+    Info (308011): Node  "slc3:my_slc|datapath:d0|three2to1Mux:SR1MUX|muxOut[0]~0" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/mux_bank.sv Line: 18
+    Info (308011): Node  "slc3:my_slc|datapath:d0|SR2Val[0]" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/datapath.sv Line: 39
+    Info (308011): Node  "slc3:my_slc|datapath:d0|three2to1Mux:SR1MUX|muxOut[1]~1" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/mux_bank.sv Line: 18
+    Info (308011): Node  "slc3:my_slc|ISDU:state_controller|SR2MUX~0" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/ISDU.sv Line: 46
+    Info (308011): Node  "slc3:my_slc|ISDU:state_controller|State.S_09" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/ISDU.sv Line: 83
+    Info (308011): Node  "slc3:my_slc|ISDU:state_controller|State.S_21" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/ISDU.sv Line: 83
+    Info (308011): Node  "slc3:my_slc|ISDU:state_controller|State.S_12" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/ISDU.sv Line: 83
+    Info (308011): Node  "slc3:my_slc|datapath:d0|SR2Val[2]" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/datapath.sv Line: 39
+    Info (308011): Node  "slc3:my_slc|datapath:d0|register_unit:rUnit|tmpRegs[5][10]~152" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/Register_unit.sv Line: 14
+    Info (308011): Node  "slc3:my_slc|datapath:d0|reg16bit:regIR|nextData[1]~9" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/reg16bit.sv Line: 6
+    Info (308011): Node  "slc3:my_slc|datapath:d0|register_unit:rUnit|tmpRegs[6][4]~153" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/Register_unit.sv Line: 14
+    Info (308011): Node  "slc3:my_slc|datapath:d0|register_unit:rUnit|tmpRegs[7][14]~155" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/Register_unit.sv Line: 14
+    Info (308011): Node  "slc3:my_slc|datapath:d0|register_unit:rUnit|tmpRegs[4][6]~154" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/Register_unit.sv Line: 14
+    Info (308011): Node  "slc3:my_slc|datapath:d0|register_unit:rUnit|tmpRegs[2][8]~156" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/Register_unit.sv Line: 14
+    Info (308011): Node  "slc3:my_slc|datapath:d0|register_unit:rUnit|tmpRegs[0][12]~158" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/Register_unit.sv Line: 14
+    Info (308011): Node  "slc3:my_slc|datapath:d0|register_unit:rUnit|tmpRegs[3][8]~159" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/Register_unit.sv Line: 14
+    Info (308011): Node  "slc3:my_slc|datapath:d0|register_unit:rUnit|tmpRegs[1][2]~157" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/Register_unit.sv Line: 14
+    Info (308011): Node  "slc3:my_slc|datapath:d0|three2to1Mux:SR1MUX|muxOut[2]~2" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/mux_bank.sv Line: 18
+    Info (308011): Node  "slc3:my_slc|datapath:d0|reg16bit:regIR|Dout[10]~0" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/reg16bit.sv Line: 8
+    Info (308011): Node  "slc3:my_slc|datapath:d0|reg16bit:regMAR|Dout[14]~0" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/reg16bit.sv Line: 8
+    Info (308011): Node  "slc3:my_slc|ISDU:state_controller|State.PauseIR1" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/ISDU.sv Line: 83
+    Info (308011): Node  "slc3:my_slc|datapath:d0|reg16bit:regIR|nextData[1]~15" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/reg16bit.sv Line: 6
+    Info (308011): Node  "slc3:my_slc|datapath:d0|reg16bit:regIR|nextData[1]~13" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/reg16bit.sv Line: 6
+    Info (308011): Node  "slc3:my_slc|ISDU:state_controller|State.S_07" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/ISDU.sv Line: 83
+    Info (308011): Node  "slc3:my_slc|datapath:d0|reg16bit:regIR|nextData[1]~48" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/reg16bit.sv Line: 6
+    Info (308011): Node  "slc3:my_slc|datapath:d0|reg16bit:regPC|Dout[8]~0" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/reg16bit.sv Line: 8
+    Info (308011): Node  "slc3:my_slc|datapath:d0|sign5bit[4]" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/datapath.sv Line: 39
+    Info (308011): Node  "slc3:my_slc|datapath:d0|reg16bit:regPC|Dout[0]" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/reg16bit.sv Line: 8
+    Info (308011): Node  "slc3:my_slc|datapath:d0|reg16bit:regMAR|nextData[13]~5" File: C:/Users/Anshul/Desktop/ECE 385/Labs/lab6/reg16bit.sv Line: 6
+    Info (308002): Truncated list of Design Assistant messages to 30 messages. Go to sections under Design Assistant section of Compilation Report for complete lists of Design Assistant messages generated.
+Info (308006): Design Assistant information: finished post-synthesis analysis of current design -- generated 55 information messages and 0 warning messages
+Info: Quartus Prime Design Assistant was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 4764 megabytes
+    Info: Processing ended: Thu Feb 27 21:04:07 2020
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
+
+

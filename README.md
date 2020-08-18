@@ -1,0 +1,3 @@
+# ECE 385 (Digital Systems Laboratory) Labs
+
+A collection of ECE 385 labs that were completed using Quartus Prime and written in SystemVerilog.  Demonstrates basic logical understanding of adders, MUXs, and other logical/combinational units.  Units were used to build a RAM unit, variety of calculators, and even abstracted into more complex units supporting I/O interfacing and input.  Demonstrates high level understanding of NIOS-II chip.

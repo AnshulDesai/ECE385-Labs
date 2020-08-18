@@ -1,0 +1,245 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "LED[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LED[2]",
+					"strict" : false
+				},
+				{
+					"name" : "AhexL[0]",
+					"strict" : false
+				},
+				{
+					"name" : "AhexL[1]",
+					"strict" : false
+				},
+				{
+					"name" : "AhexL[2]",
+					"strict" : false
+				},
+				{
+					"name" : "AhexL[3]",
+					"strict" : false
+				},
+				{
+					"name" : "AhexL[4]",
+					"strict" : false
+				},
+				{
+					"name" : "AhexL[5]",
+					"strict" : false
+				},
+				{
+					"name" : "AhexL[6]",
+					"strict" : false
+				},
+				{
+					"name" : "AhexU[0]",
+					"strict" : false
+				},
+				{
+					"name" : "AhexU[1]",
+					"strict" : false
+				},
+				{
+					"name" : "AhexU[2]",
+					"strict" : false
+				},
+				{
+					"name" : "AhexU[3]",
+					"strict" : false
+				},
+				{
+					"name" : "AhexU[4]",
+					"strict" : false
+				},
+				{
+					"name" : "AhexU[5]",
+					"strict" : false
+				},
+				{
+					"name" : "AhexU[6]",
+					"strict" : false
+				},
+				{
+					"name" : "BhexL[0]",
+					"strict" : false
+				},
+				{
+					"name" : "BhexL[1]",
+					"strict" : false
+				},
+				{
+					"name" : "BhexL[2]",
+					"strict" : false
+				},
+				{
+					"name" : "BhexL[3]",
+					"strict" : false
+				},
+				{
+					"name" : "BhexL[4]",
+					"strict" : false
+				},
+				{
+					"name" : "BhexL[5]",
+					"strict" : false
+				},
+				{
+					"name" : "BhexL[6]",
+					"strict" : false
+				},
+				{
+					"name" : "BhexU[0]",
+					"strict" : false
+				},
+				{
+					"name" : "BhexU[1]",
+					"strict" : false
+				},
+				{
+					"name" : "BhexU[2]",
+					"strict" : false
+				},
+				{
+					"name" : "BhexU[3]",
+					"strict" : false
+				},
+				{
+					"name" : "BhexU[4]",
+					"strict" : false
+				},
+				{
+					"name" : "BhexU[5]",
+					"strict" : false
+				},
+				{
+					"name" : "BhexU[6]",
+					"strict" : false
+				},
+				{
+					"name" : "A_val[0]",
+					"strict" : false
+				},
+				{
+					"name" : "A_val[1]",
+					"strict" : false
+				},
+				{
+					"name" : "A_val[2]",
+					"strict" : false
+				},
+				{
+					"name" : "A_val[3]",
+					"strict" : false
+				},
+				{
+					"name" : "A_val[4]",
+					"strict" : false
+				},
+				{
+					"name" : "A_val[5]",
+					"strict" : false
+				},
+				{
+					"name" : "A_val[6]",
+					"strict" : false
+				},
+				{
+					"name" : "A_val[7]",
+					"strict" : false
+				},
+				{
+					"name" : "B_val[0]",
+					"strict" : false
+				},
+				{
+					"name" : "B_val[1]",
+					"strict" : false
+				},
+				{
+					"name" : "B_val[2]",
+					"strict" : false
+				},
+				{
+					"name" : "B_val[3]",
+					"strict" : false
+				},
+				{
+					"name" : "B_val[4]",
+					"strict" : false
+				},
+				{
+					"name" : "B_val[5]",
+					"strict" : false
+				},
+				{
+					"name" : "B_val[6]",
+					"strict" : false
+				},
+				{
+					"name" : "B_val[7]",
+					"strict" : false
+				},
+				{
+					"name" : "Reset",
+					"strict" : false
+				},
+				{
+					"name" : "Clk",
+					"strict" : false
+				},
+				{
+					"name" : "Execute",
+					"strict" : false
+				},
+				{
+					"name" : "ClearA_LoadB",
+					"strict" : false
+				},
+				{
+					"name" : "Din[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Din[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Din[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Din[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Din[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Din[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Din[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Din[7]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
